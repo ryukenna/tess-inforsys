@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StudentService } from '../service/student.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DataSource } from '@angular/cdk/collections'
@@ -8,25 +8,20 @@ import { DataSource } from '@angular/cdk/collections'
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent {
+export class ChildComponent implements OnInit {
 
+  @Input() studentDetails: '';
+  displayedColumns = ['Address', 'Name', 'Age']
 
+  // studentDetails = {
+  //   Address:'',
+  //   Name:'',
+  //   Age:''
+  // }
+  
   constructor(private student: StudentService, private afs: AngularFirestore) { }
-
-  displayedColumns = ['Address', 'Name', 'Age'];
-  dataSource = new StudentDataSource (this.student);
-}
-
-  export class StudentDataSource extends DataSource<any> {
-    constructor (private student: StudentService) {
-      super()
-    }
-
-    connect() {
-      return this.student.getStudents();
-    }
-
-    disconnect() {
-
-    }
+  
+  ngOnInit(){
+    
   }
+}

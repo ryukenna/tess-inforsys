@@ -6,13 +6,14 @@ export class StudentService {
 
   constructor(private afs: AngularFirestore) {}
 
-  addStudent(studentData) {
-    this.afs.collection('students').add(studentData).then (() =>{
+  addStudents(studentsData) {
+    this.afs.collection('students').add(studentsData).then (() =>{
       console.log('Done');
     })
   }
 
   getStudents() {
-    return this.afs.collection('students', ref => ref.orderBy('Age')).valueChanges();
+    const data = this.afs.collection('students').valueChanges()
+    return data;
   }
 }

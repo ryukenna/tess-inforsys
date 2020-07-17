@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { AngularFireAnalyticsModule }from '@angular/fire/analytics';
 import { StudentService } from './service/student.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { DemoMaterialModule } from './material/material-module';
 
@@ -22,7 +21,6 @@ import { DemoMaterialModule } from './material/material-module';
 @NgModule({
   declarations: [
     AppComponent,
-    ParentComponent,
     ChildComponent
   ],
   imports: [
