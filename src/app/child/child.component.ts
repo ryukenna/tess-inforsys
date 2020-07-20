@@ -10,8 +10,8 @@ import { DataSource } from '@angular/cdk/collections'
 })
 export class ChildComponent implements OnInit {
 
-  @Input() studentDetails: '';
-  displayedColumns = ['Address', 'Name', 'Age']
+  @Input() dataSource: any;
+  displayedColumns = ['Name', 'Address', 'Age', 'actions']
 
   // studentDetails = {
   //   Address:'',
@@ -20,7 +20,11 @@ export class ChildComponent implements OnInit {
   // }
   
   constructor(private student: StudentService, private afs: AngularFirestore) { }
-  
+
+  deleteStudents(student) {
+    this.afs.doc(student);
+  }
+
   ngOnInit(){
     
   }

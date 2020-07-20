@@ -9,43 +9,43 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private student: StudentService, private afs: AngularFirestore){}
-  displayedColumns = ['Address', 'Name', 'Age'];
-  
-  dataSource: MatTableDataSource<any>;
+  dataSource: any;
 
   studentDetails = {
-    Address: '',
     Name: '',
+    Address: '',
     Age: ''
+  }
+  
+  constructor(private student: StudentService, private afs: AngularFirestore){}
+  // displayedColumns = ['Address', 'Name', 'Age'];
+  
+  ngOnInit() {
+    this.getStudents()
   }
 
   addStudents() {
     this.student.addStudents(this.studentDetails);
   }
 
-  getStudents() {
-    return this.student 
-  }
+  // deleteStudents(ID) {
+  //   this.student.deleteStudents(ID);
+  // }
 
-  ngOnInit(){
-    
+  async getStudents() {
+    let x = await new Promise(res => {
+      this.student.getStudents().subscribe(z => {
+        res(z)
+      });
+    })
+    this.dataSource = x
   }
-
+}
   // export class StudentDataSource extends DataSource<any> {
   //   constructor (private student: StudentService) {
   //     super()
   //   }
 
-    async getStudent() {
-      let x = await new Promise(res => {
-        this.student.getStudents().subscribe(z => {
-          res(z)
-        });
-      })
-      this.dataSource
-    }
-  }
   // }
   //   connect() {
   //     return this.student.getStudents();
