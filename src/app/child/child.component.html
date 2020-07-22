@@ -22,7 +22,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell  *matHeaderCellDef > Actions </th>
     <td mat-cell *matCellDef="let row" >
-         <button (click)="deleteStudents" mat-button color="primary">
+         <button (click)="deleteStudents(row.id)" mat-button color="primary">
            <mat-icon>delete</mat-icon></button>
     </td>
   </ng-container>

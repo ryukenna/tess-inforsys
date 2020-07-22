@@ -1,16 +1,7 @@
-<!-- <table>
-  <thead>
-    <th>Address</th>
-    <th>Name</th>
-    <th>Age</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-    </tr>
-  </tbody>
-</table> -->
-
+  <mat-toolbar color="primary">
+    <span>Students Data</span>
+  </mat-toolbar>
+<div class="container">
 <mat-form-field>
   <input matInput placeholder="Name" [(ngModel)]="studentDetails.Name">
 </mat-form-field>
@@ -25,6 +16,7 @@
 
 <button mat-raised-button color="primary" (click)="addStudents()">Add Students</button>
 
-<button mat-raised-button color="primary" (click)="getStudents()">Get Students</button>
+<button mat-raised-button color="primary" (click)="updateStudents()">Update Students</button>
 
 <app-child [dataSource]="dataSource"></app-child>
+</div>

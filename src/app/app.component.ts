@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   // displayedColumns = ['Address', 'Name', 'Age'];
   
   ngOnInit() {
-    this.getStudents()
+    this.updateStudents()
   }
 
   addStudents() {
@@ -32,9 +32,9 @@ export class AppComponent implements OnInit {
   //   this.student.deleteStudents(ID);
   // }
 
-  async getStudents() {
+  async updateStudents() {
     let x = await new Promise(res => {
-      this.student.getStudents().subscribe(z => {
+      this.student.updateStudents().subscribe(z => {
         res(z)
       });
     })

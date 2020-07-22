@@ -19,10 +19,10 @@ export class ChildComponent implements OnInit {
   //   Age:''
   // }
   
-  constructor(private student: StudentService, private afs: AngularFirestore) { }
+  constructor(private student: StudentService) { }
 
-  deleteStudents(student) {
-    this.afs.doc(student);
+  deleteStudents(id: string) {
+    this.student.deleteStudents(id);
   }
 
   ngOnInit(){
