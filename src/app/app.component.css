@@ -2,6 +2,7 @@
   padding: 600px;
 } */
 
-p {
-  text-align: center;
+mat-toolbar {
+  justify-content: center;
+  /* text-align: center; */
 }

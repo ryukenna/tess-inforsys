@@ -14,9 +14,10 @@
     <input matInput placeholder="Age" [(ngModel)]="studentDetails.Age">
 </mat-form-field>
 
+<app-child [dataSource]="dataSource"></app-child>
+<br>
 <button mat-raised-button color="primary" (click)="addStudents()">Add Students</button>
 
 <button mat-raised-button color="primary" (click)="updateStudents()">Update Students</button>
 
-<app-child [dataSource]="dataSource"></app-child>
 </div>
